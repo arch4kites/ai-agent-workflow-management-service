@@ -13,8 +13,7 @@ router = APIRouter()
 
 # ------------------- Template Endpoints ------------------- #
 
-@router.get("/get_template", response_model=AgentTemplateSchema, summary="Get Agent Template")
-
+@router.get("/api/v1/get_template", response_model=AgentTemplateSchema, summary="Get Agent Template")
 # Uncomment the line below to enable authorization using authentication dependency
 
 #async def get_template(agent: str, user: dict = Depends(authentication)):
@@ -29,8 +28,7 @@ async def get_template(agent: str):
         raise HTTPException(status_code=404, detail="Template not found")
     return template
 
-@router.post("/get_template", response_model=AgentTemplateSchema, status_code=201, summary="Create Agent Template")
-
+@router.post("/api/v1/get_template", response_model=AgentTemplateSchema, status_code=201, summary="Create Agent Template")
 # Uncomment the line below to enable authorization using authentication dependency
 
 #async def create_template(template: AgentTemplateSchema, user: dict = Depends(authentication)):
@@ -47,8 +45,7 @@ async def create_template(template: AgentTemplateSchema):
 
 # ------------------- Agent Workflow Endpoints ------------------- #
 
-@router.post("/agent-workflow/{shipper_id}", response_model=AgentWorkflowCreateSchema, status_code=201, summary="Create Agent Workflow")
-
+@router.post("/api/v1/agent-workflow/{shipper_id}", response_model=AgentWorkflowCreateSchema, status_code=201, summary="Create Agent Workflow")
 # Uncomment the line below to enable authorization using authentication dependency
 
 #async def create_agent_workflow(shipper_id: str, workflow: AgentWorkflowSchema, user: dict = Depends(authentication)):
@@ -68,8 +65,7 @@ async def create_agent_workflow(shipper_id: str, workflow: AgentWorkflowSchema):
     return result
 
 
-@router.put("/agent-workflow/{shipper_id}", response_model=AgentWorkflowUpdateSchema, status_code=200, summary="Update Agent Workflow")
-
+@router.put("/api/v1/agent-workflow/{shipper_id}", response_model=AgentWorkflowUpdateSchema, status_code=200, summary="Update Agent Workflow")
 # Uncomment the line below to enable authorization using authentication dependency
 
 #async def update_agent_workflow(shipper_id: str, workflow: AgentWorkflowSchema, user: dict = Depends(authentication)):
