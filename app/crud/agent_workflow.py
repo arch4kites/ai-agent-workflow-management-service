@@ -17,7 +17,7 @@ async def save_agent_workflow(shipper_id: str, workflow: dict, user: dict):
 
     workflow = template  
     workflow["agent_id"] = str(uuid.uuid4())  
-    workflow["status"] = "active"
+    workflow["status"] = workflow.get("status", "active")
     workflow["shipper_id"] = shipper_id
     workflow["created_at"] = datetime.now(timezone.utc).isoformat()
     workflow["created_by"] = user["userId"]
