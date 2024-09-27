@@ -1,0 +1,6 @@
+fastapi
+pydantic
+motor
+uvicorn
+httpx
+pyjwt
